@@ -1,0 +1,862 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{23D2C652-CC4D-4388-A7DD-AB19CEFA3E4F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SevenWondersGUI</RootNamespace>
+    <AssemblyName>SevenWondersGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Boards\WB1.cs" />
+    <Compile Include="Boards\WB2.cs" />
+    <Compile Include="Boards\WB3.cs" />
+    <Compile Include="Boards\WB4.cs" />
+    <Compile Include="Boards\Board.cs" />
+    <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\CardlistCreator.cs" />
+    <Compile Include="Cards\CivilianCards.cs" />
+    <Compile Include="Cards\CommerceCard.cs" />
+    <Compile Include="Boards\WB5.cs" />
+    <Compile Include="Boards\WB6.cs" />
+    <Compile Include="Boards\CreateBoards.cs" />
+    <Compile Include="GUI\DiscardsWindow.xaml.cs">
+      <DependentUpon>DiscardsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Engine\Calculator.cs" />
+    <Compile Include="Engine\Logger.cs" />
+    <Compile Include="Engine\ResourceManager.cs" />
+    <Compile Include="Engine\Resources.cs" />
+    <Compile Include="GUI\ResourceWindow.xaml.cs">
+      <DependentUpon>ResourceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ScoreWindow.xaml.cs">
+      <DependentUpon>ScoreWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Engine\StartGame.cs" />
+    <Compile Include="GUI\ResourceBuying.xaml.cs">
+      <DependentUpon>ResourceBuying.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KensUtilityfunctions.cs" />
+    <Compile Include="GUI\RulesWindow.xaml.cs">
+      <DependentUpon>RulesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Networking\Client\ClientComm.cs" />
+    <Compile Include="Networking\Client\ClientDblBuff.cs" />
+    <Compile Include="Networking\Server\CommTimer.cs" />
+    <Compile Include="Networking\Server\NetMessage.cs" />
+    <Compile Include="Networking\Server\PlayerComm.cs" />
+    <Compile Include="Networking\Server\PlayerThreadData.cs" />
+    <Compile Include="Networking\Server\ServerMessageQueue.cs" />
+    <Compile Include="Networking\Server\WondersServer.cs" />
+    <Compile Include="Networking\Server\WondObserver.cs" />
+    <Compile Include="Networking\Server\WondObserverable.cs" />
+    <Compile Include="State\Debug.cs" />
+    <Compile Include="State\Player.cs" />
+    <Compile Include="Strategy\AdaptiveStrategy.cs" />
+    <Compile Include="Strategy\AggressiveStrategy.cs" />
+    <Compile Include="State\AIPlayer.cs" />
+    <Compile Include="Strategy\CivilianStrategy.cs" />
+    <Compile Include="Strategy\CommerceStrategy.cs" />
+    <Compile Include="Strategy\CommonAiFunc.cs" />
+    <Compile Include="Strategy\DiscreteStrategy.cs" />
+    <Compile Include="State\GameContext.cs" />
+    <Compile Include="State\GameState.cs" />
+    <Compile Include="Cards\GuildCard.cs" />
+    <Compile Include="Boards\WB13.cs" />
+    <Compile Include="Boards\WB14.cs" />
+    <Compile Include="GUI\HostGameCanvas.cs" />
+    <Compile Include="Cards\MilitaryCard.cs" />
+    <Compile Include="Boards\WB11.cs" />
+    <Compile Include="Boards\WB12.cs" />
+    <Compile Include="GUI\PlayerGameBoard.cs" />
+    <Compile Include="Boards\WB9.cs" />
+    <Compile Include="Boards\WB10.cs" />
+    <Compile Include="Strategy\GameStrategy.cs" />
+    <Compile Include="Strategy\MilitaryStrategy.cs" />
+    <Compile Include="State\PlayerState.cs" />
+    <Compile Include="GUI\PlayGameCanvas.cs" />
+    <Compile Include="GUI\StartGameCanvas.cs" />
+    <Compile Include="GUI\WaitingOnConnectionWindow.xaml.cs">
+      <DependentUpon>WaitingOnConnectionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\WaitingToStartCanvasHost.cs" />
+    <Compile Include="GUI\WaitingToStartCanvasPlayer.cs" />
+    <Compile Include="Cards\ResourceCard.cs" />
+    <Compile Include="Cards\ScienceCard.cs" />
+    <Compile Include="Boards\WB7.cs" />
+    <Compile Include="Boards\WB8.cs" />
+    <Compile Include="Strategy\PlayerStrategy.cs" />
+    <Compile Include="Strategy\RandomStrategy.cs" />
+    <Compile Include="Strategy\ScienceStrategy.cs" />
+    <Compile Include="Strategy\StrategyFactory.cs" />
+    <Compile Include="GUI\WonderBuyingWindow.xaml.cs">
+      <DependentUpon>WonderBuyingWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="GUI\DiscardsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ResourceWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="GUI\WaitingOnConnectionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ScoreWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ResourceBuying.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\RulesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\WonderBuyingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <Resource Include="Cards\Cards.csv" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\backGroundTwo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\startBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M37.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M38.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M39.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\EmptyCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ph1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\darkPlaceholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M40.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Age1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Age2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M41.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C26.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Age3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BackOfWonderCards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C27.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C63.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C64.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C65.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C66.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C67.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C68.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C69.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C70.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C108.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C109.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C110.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C111.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C112.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C113.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C114.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C115.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C116.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C117.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\C118.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO28.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO31.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO33.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO34.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO35.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO36.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO71.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO72.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO73.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO74.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO75.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO76.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO77.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO78.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO79.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO80.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO119.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO120.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO121.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO122.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO123.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO124.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO125.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO126.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CO127.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ColossusOfRhodes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\G98.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\G99.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\G100.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\G101.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\G102.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\G103.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\G104.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\G105.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\G106.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\G107.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\HangingGardensOfBabylon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LighthouseOfAlexandria.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M42.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M81.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M82.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M83.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M84.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M85.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M86.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M87.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M88.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M89.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M128.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M129.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M130.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M131.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M133.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M134.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M132.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M135.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M136.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M137.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MausoleumOfHalicarnassus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PyramidsOfGyza.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R49.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R50.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R51.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R52.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R53.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R54.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R55.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R56.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R57.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R58.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R59.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R60.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R61.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\R62.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WB8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S43.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S44.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S45.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S46.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S47.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S48.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S90.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S91.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S92.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S93.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S94.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S95.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S96.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S97.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S138.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S139.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S140.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S141.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S142.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S143.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S144.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S145.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S146.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S147.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TempleOfArtemisInEphesus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ZeusInOlympia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ph2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ph3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\EmptyCardWonderBoard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\geld3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scorecard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Age1Wonder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Age2Wonder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Age3Wonder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ResourceChooser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gameover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7wonders-rules-12.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
